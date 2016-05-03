@@ -5,6 +5,8 @@ var app = express();
 app.use(logger('dev'));
 
 app.use(express.static('public'));
+app.set('views', __dirname+'/views');
+app.set('view engine', 'pug');
 
 //REST
 
@@ -20,14 +22,14 @@ app.use(express.static('public'));
 
 //DELETE --> Delete the video
 
-app.get('/:name', function(req, res, next){
-
-    //Pre-work
-
-    var name = firstLetterCaps(req.params.name);
-    res.send('Hello ' + name);
-    });
-
+// app.get('/:name', function(req, res, next){
+//
+//     //Pre-work
+//
+//     var name = firstLetterCaps(req.params.name);
+//     res.send('Hello ' + name);
+//     });
+//
 function firstLetterCaps(name){
 
   var firstLetter = name.charAt(0);
@@ -35,6 +37,12 @@ function firstLetterCaps(name){
   name = firstLetter + name.substr(1);
   return name;
 }
+
+// app.get('/pug/:name', function(req, res){
+//     var name = firstLetterCaps(req.params.name);
+//     var msg = "hello " + name;
+//     res.render('index', {title: 'Hey', message: msg});
+// });
 
 // app.get('/', function(req, res, next){
 //     res.send('Hey there');

@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Simple Angular App</title>
     <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
   </head>
   <body>
-    <p>
-      Welcome to my website
-    </p>
+    <div>
+      <input type="text" placeholder="Enter something" ng-model="number">
+      <p>Hello {{ yourname | uppercase }}</p>
+    </div>
+    <div ng-if="number > 0">
+      <p>Your result is {{number * 2}}</p>
+    </div>
+    <div ng-if="number <= 0 || number == '' || number == null">
+      <p>Enter a number</p>
+    </div>
     <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
